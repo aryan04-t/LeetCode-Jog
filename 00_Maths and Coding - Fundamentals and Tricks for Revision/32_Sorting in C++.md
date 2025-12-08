@@ -104,6 +104,7 @@ stable_sort(students.begin(), students.end(), [](auto& a, auto& b) {
 **Use `std::stable_sort` when you need stability** (slightly slower but preserves order of equal elements).
 
 
+
 ## 🔧 C++ Built-in Sort Details
 
 **Function Name:** `std::sort` (from `<algorithm>` header)
@@ -128,6 +129,8 @@ stable_sort(students.begin(), students.end(), [](auto& a, auto& b) {
 | **Worst** | O(n log n) | O(log n) |
 
 **Space:** O(log n) for recursion stack
+
+
 
 ## 🔒 C++ Stable Sort Details
 
@@ -161,3 +164,23 @@ stable_sort(students.begin(), students.end(), [](auto& a, auto& b) {
 | **Speed** | Faster | Slightly slower |
 | **Space** | O(log n) | O(n) |
 | **Use When** | Order of equal elements doesn't matter | Need to preserve original order of equal elements |
+
+
+
+## Sorting Algorithms Stability Comparison
+
+| Sort Algorithm      | Stable? | Notes                                                |
+|---------------------|---------|------------------------------------------------------|
+| Bubble Sort         | Yes     | Adjacent swaps preserve relative order               |
+| Selection Sort      | No      | Swaps non-adjacent elements                          |
+| Insertion Sort      | Yes     | Inserts elements without disrupting equal elements   |
+| Merge Sort          | Yes     | Merge operation can preserve order                   |
+| Quick Sort          | No      | Partitioning swaps non-adjacent elements             |
+| Heap Sort           | No      | Heap operations don't preserve relative order        |
+| Intro Sort          | No      | Hybrid (quicksort + heapsort), inherits instability  |
+| Tim Sort            | Yes     | Hybrid (merge + insertion), designed for stability   |
+| Counting Sort       | Yes*    | When implemented properly                            |
+| Radix Sort          | Yes*    | Depends on underlying stable sort (usually counting) |
+| Bucket Sort         | Yes*    | If buckets sorted with stable algorithm              |
+| Shell Sort          | No      | Gap-based comparisons break stability                |
+| Cycle Sort          | No      | Minimizes writes, not stable                         |
