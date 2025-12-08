@@ -77,6 +77,9 @@ sort(nums.begin(), nums.end());
 
 A sort is **stable** if it preserves the relative order of equal elements, and if the relative order of equal elements in not preserved then its called **unstable** sort.
 
+`Stability of the sort depends on the nature of the algorithm.`
+
+
 ```cpp
 struct Student {
     string name;
