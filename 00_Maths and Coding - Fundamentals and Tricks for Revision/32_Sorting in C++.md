@@ -180,7 +180,7 @@ stable_sort(students.begin(), students.end(), [](auto& a, auto& b) {
 | Merge Sort          | Yes     | Merge operation can preserve order                   |
 | Quick Sort          | No      | Partitioning swaps non-adjacent elements             |
 | Heap Sort           | No      | Heap operations don't preserve relative order        |
-| Intro Sort          | No      | Hybrid (quicksort + heapsort), inherits instability  |
+| Intro Sort          | No      | Hybrid (quicksort + heapsort + insertion), inherits instability  |
 | Tim Sort            | Yes     | Hybrid (merge + insertion), designed for stability   |
 | Counting Sort       | Yes*    | When implemented properly                            |
 | Radix Sort          | Yes*    | Depends on underlying stable sort (usually counting) |
