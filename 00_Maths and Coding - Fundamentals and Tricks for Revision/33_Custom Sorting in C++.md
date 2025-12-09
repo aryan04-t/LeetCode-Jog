@@ -94,10 +94,7 @@ sort(words.begin(), words.end(), [](string& a, string& b) {
 
 **Custom comparator = Your definition of "which element comes first"**
 
-The comparator answers one question: **"Should `a` come before `b`?"**
-- Return `true` → Yes, place `a` before `b`
-- Return `false` → No, place `b` before `a` (or keep as is if equal)
-
+The comparator answers one question: **"When should `a` come before `b`?"**
 
 - - - 
 
@@ -128,10 +125,10 @@ The comparator answers one question: **"Should `a` come before `b`?"**
 
 ## 🎯 Correct Intuition for Writing Custom Sort
 
-**Think:** "Should `a` come **before** `b` in the final sorted order?"
+**Think:** "When should `a` come **before** `b` in the final sorted order?"
 
 ✅ Return `true` → Yes, `a` should come before `b`  
-✅ Return `false` → No, `a` shouldn't come before `b` (or they're equal)
+✅ Return `false` → No, `a` shouldn't come before `b` 
 ```cpp
 // Example: Sort by absolute value
 sort(nums.begin(), nums.end(), [](int a, int b) {
@@ -140,13 +137,36 @@ sort(nums.begin(), nums.end(), [](int a, int b) {
 ```
 
 
-## 📏 Rules of Writing Comparator
+## 📏 Rules for Writing Custom Comparator
 
-### ✅ The Three Golden Rules (Strict Weak Ordering)
+In C++, when we write a custom comparator, the custom comparator's logic should follow a mathematical property called `strict weak ordering` - and this property defines the rules for writing custom comparator.
 
-In C++, a `strict weak ordering` is a binary relation, typically represented by a comparison function or operator (like operator <), that defines a specific type of ordering between elements.
 
-Sorting algorithms rely on these rules. Breaking them causes incorrect or unstable behavior.
+### ❓ What is "Strict Weak Ordering" 
+
+`Strict weak ordering` is a mathematical property (or requirement/constraint). It is basically a binary relation - typically represented by a comparison function or operator (like operator <), that defines a specific type of ordering between elements.
+
+Sorting algorithms rely on "strict weak ordering" rules. Breaking them causes incorrect or unstable behavior.
+
+
+### ✅ Meaning of "Strict Weak Ordering"
+
+**Strict** = `a < a` is always false 
+
+**Weak** = different objects can tie based on comparison criteria
+
+**Example:**
+- `Person{"Alice", 25}` vs `Person{"Bob", 25}` sorted by age
+- `!(Alice < Bob) && !(Bob < Alice)` = they tie
+- They're **equivalent** (tie in ordering) but not **equal** (different objects)
+- The ordering is "weak" because it deliberately ignores differences irrelevant to the comparison (names don't matter, only age does)
+
+**Ordering** = defines how to arrange/rank elements (transitivity: if `a < b` and `b < c`, then `a < c`)
+
+
+## ✅ The Three Golden Rules of "Strict Weak Ordering" Property 
+
+#### These rules should be followed when writing custom comparators 
 
 ### 1️⃣ Irreflexivity: `comp(x, x)` must be `false`
 
@@ -234,6 +254,15 @@ comp(a, a)  // Is a less than itself? → Must be FALSE
 **Remember:** The actual algorithm uses the comparator to navigate data structures, not to directly trigger swaps. Returning `false` for equal elements maintains consistent ordering relationships that algorithms rely on.
 
 
+## ❓ What defines Stability of a Sort?? 
+
+`Stability of a sort is defined by the Comparator or the Algorithm??` 
+
+The stability guarantee comes from the algorithm, not from the comparator. 
+
+stable_sort and sort, both sort's custom comparators require "strict weak ordering" to be followed when you define the custom comparators. 
+
+
 ## 🔼🔽 Writing Ascending and Descending Comparators
 
 ### 🔼 Ascending Order (Smaller values first)
@@ -253,14 +282,14 @@ sort(nums.begin(), nums.end(), [](int a, int b) {
 ```
 
 
-## Quick Reference Card: 
+## Quick Summary Card: 
 
 ```
-// ✅ Always use: < or >
-// ❌ Never use: <= or >=
-// 🎯 Custom comparator = Your definition of "which element comes first"
-// 💡 Think: "Should a come BEFORE b in final order?"
-// 🔑 When a == b, always return false (automatically handled by < and >)
-// 🔥 Comparator defines ordering relationships, not direct swap logic
-// 🔥 Algorithms navigate data structures using these relationships
+✅ Always use: < or >
+❌ Never use: <= or >=
+🎯 Custom comparator = Your definition of "which element comes first"
+💡 Think: "When should a come BEFORE b in final order?"
+🔑 When a == b, always return false (automatically handled by < and >)
+🔥 Comparator defines ordering relationships, not direct swap logic
+🔥 Algorithms navigate data structures using these relationships
 ```
