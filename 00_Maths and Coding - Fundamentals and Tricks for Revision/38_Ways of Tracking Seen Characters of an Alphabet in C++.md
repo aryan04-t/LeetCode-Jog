@@ -1,4 +1,4 @@
-# 38_Ways of Tracking Seen Characters of an Alphabet in C++ 
+# Ways of Tracking Seen Characters of an Alphabet in C++ 
 
 
 **Note:** Here the input string has just lowercase characters `a to z`
