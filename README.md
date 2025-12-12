@@ -26,6 +26,15 @@ For my ongoing LeetCode practice, I've created a new repository: **[LeetCode Spr
 
 ---
 
+
+## 📝 Note:  
 > This repo will remain as a structured, high-quality archive of my earlier problem-solving journey — something I can revisit for revision and reference.
 
-**Note:** This is an archive, not an abandonment. I will keep adding quality documentation when I feel its important and if I get time. 
+> This is an archive, not an abandonment. I will keep adding quality documentation when I feel its important and if I get time. 
+
+
+
+## ⚠️ WARNING:   
+> Don't rename an already commited folder or file, because the links of those folders/files are refered at multiple markdowns files inside and outside this repo, and changing already commited folder/file names can break those links - so, be careful before doing something like this 
+
+> Don't even rename the `repo` or `master` branch ever, because the links are dependant on that also - but if you choose to rename these things, then make sure to update all links even in other repos as well like `LeetCode Sprint`
