@@ -41,10 +41,11 @@ if(seen[ch - 'a']) { /* already seen */ }
 
 ### 4️⃣ Bit Masking ⭐
 ```cpp
-int seen = 0;
-int bit = 1 << (ch - 'a');      // get bit position
-if((seen & bit) == 0) {          // check if not set
-    seen |= bit;                 // mark as seen
+int seen = 0;                            // this is also called "mask" 
+int shifts = (ch - 'a');
+int bitPosition = 1 << shifts;           // get bit position
+if((seen & bitPosition) == 0) {          // check if not set
+    seen |= bitPosition;                 // mark as seen
 }
 ```
 - **Space:** O(1) - single integer
@@ -57,9 +58,9 @@ if((seen & bit) == 0) {          // check if not set
 ### Core Operations
 | Operation | Code | Purpose |
 |-----------|------|---------|
-| Compute position | `1 << (ch - 'a')` | Get bit for char |
-| Check if seen | `(seen & bit) == 0` | Char bit is unset |
-| Mark as seen | `seen \|= bit` | Set the bit |
+| Compute position | `1 << shifts` | Get bit for char |
+| Check if seen | `(seen & bitPosition) == 0` | Char bit is unset |
+| Mark as seen | `seen \|= bitPosition` | Set the bit |
 
 ### Why It Works
 - Each of 26 letters maps to 1 bit (0-25)
@@ -70,8 +71,8 @@ if((seen & bit) == 0) {          // check if not set
 ```
 seen = 0000...0101  (chars 'a' and 'c' seen)
 ch = 'b' → bit = 0000...0010
-seen & bit = 0  → not seen ✓
-seen |= bit → 0000...0111  (now 'a', 'b', 'c' seen)
+seen & bitPosition = 0  → not seen ✓
+seen |= bitPosition → 0000...0111  (now 'a', 'b', 'c' seen)
 ```
 
 ## 📝 Reference Problem
