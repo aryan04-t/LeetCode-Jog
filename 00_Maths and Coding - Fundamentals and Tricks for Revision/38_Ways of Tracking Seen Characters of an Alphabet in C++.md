@@ -76,7 +76,7 @@ seen |= bitPosition → 0000...0111  (now 'a', 'b', 'c' seen)
 ```
 
 ## 📝 Reference Problem
-**LeetCode 3760**: Maximum Substrings With Distinct Start - [Solution Link](https://github.com/aryan04-t/LeetCode-Sprint/blob/master/3760.%20Maximum%20Substrings%20With%20Distinct%20Start/03_Most_Optimal_Bit_Masking_Approach.cpp)
+**LeetCode 3760**: Maximum Substrings With Distinct Start - [Bit Masking Solution Link](https://github.com/aryan04-t/LeetCode-Sprint/blob/master/3760.%20Maximum%20Substrings%20With%20Distinct%20Start/03_Most_Optimal_Bit_Masking_Approach.cpp)
 
 **Key Insight:** Bit masking achieves O(1) space vs O(26) for vector, O(26) used by map/set also
 
