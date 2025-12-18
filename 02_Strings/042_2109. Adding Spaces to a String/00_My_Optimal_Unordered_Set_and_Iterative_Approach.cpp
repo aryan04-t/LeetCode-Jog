@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/adding-spaces-to-a-string 
 
 
+#include<vector> 
 #include<unordered_set> 
 #include<string> 
 using namespace std; 
