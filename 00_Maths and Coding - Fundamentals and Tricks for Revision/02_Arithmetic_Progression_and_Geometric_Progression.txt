@@ -1,0 +1,3 @@
+Convergent and Divergent GP series
+
+Finite and Infinite GP Sum 
